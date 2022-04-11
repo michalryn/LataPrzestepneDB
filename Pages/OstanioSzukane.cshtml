@@ -1,0 +1,53 @@
+﻿@page
+@model LataPrzestepneDB.Pages.OstanioSzukaneModel
+@{
+    ViewData["Title"] = "Ostanio zapisane";
+}
+
+<h1>Ostantio zapisane</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Person[0].Imie)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Person[0].Nazwisko)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Person[0].Rok)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Person[0].Text)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Person[0].Data)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Person) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Imie)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nazwisko)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Rok)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Text)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Data)
+            </td>
+            <td>
+                <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

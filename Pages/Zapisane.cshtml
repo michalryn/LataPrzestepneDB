@@ -1,0 +1,26 @@
+﻿@page
+@model LataPrzestepneDB.Pages.ZapisaneModel
+@{
+    ViewData["Title"] = "Dane w sesji";
+}
+
+<div>
+    <h1 class="display-4">Dane zapisane w sesji</h1>
+    @if (Model.Persons != null)
+    {
+        <div class="list">
+        <ul class="list-group list-group-flush">
+            @foreach (var person in Model.Persons)
+            {
+                <li class="list-group-item">@person.Imie @person.Nazwisko @person.Rok - @person.Message()</li>
+            }
+        </ul>
+        </div>
+    }
+
+</div>
+<style>
+    .list {
+        font-size: 1.1em
+    }
+</style>
